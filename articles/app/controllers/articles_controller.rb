@@ -9,6 +9,24 @@ class ArticlesController < ApplicationController
     end 
 
       
+    get "/articles/:id" do 
+      # @article = Article.find(params["id"])
+       erb :'articles/show'
+ end
+
+
+
+
+
+    post '/articles' do 
+     # article = Article.new(params) 
+      #if article.save # direct user to articles index
+        redirect '/articles'
+      #else
+        erb :'/articles/new' #render the form
+    end 
+    
+      
 end
       
       
