@@ -19,7 +19,7 @@ class ArticleController < ApplicationController
 
  
     get "/articles/:id/edit" do 
-      @article = Article.find(id: params[:id])
+      @articles = Article.all
         erb :'/articles/edit'
     end
 
