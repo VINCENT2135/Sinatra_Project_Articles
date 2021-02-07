@@ -1,0 +1,13 @@
+<h2> Articles </h2>
+
+<% @articles.each do |y| %>
+    <ul>
+      <li><a href="/articles/<%=y.id %>"> <%= y.title %> </a> </li>
+      <a href="/articless/<%=y.id%>/edit">EDIT</a>
+      <form action="/articles/<%=y.id%>" method="post">
+        <input type="hidden" name="_method" value="delete"> 
+        <input type="submit" value= "delete">
+      </form>
+    </ul>
+
+<% end %>
