@@ -4,7 +4,7 @@ class ArticleController < ApplicationController
 #index 
 
 
-get "/articles" do
+    get "/articles" do
      
       erb :'articles/index'
     
@@ -29,10 +29,22 @@ get "/articles" do
       # article = Article.new(params) 
       #if article.save # direct user to articles index
         redirect '/articles'
-      #else
+          #else
         erb :'/articles/new' #render the form
     end 
     
+    #UPDATE 
+ 
+   get "/articles/:id/edit" do 
+      @article = Article.find(params["id"])
+        erb :'/articles/edit'
+    end
+
+
+  patch '/articles/:id' do 
+      @article = Article.find(params[:id])
+      erb :'articles/edit'
+  end
 
 end 
  
