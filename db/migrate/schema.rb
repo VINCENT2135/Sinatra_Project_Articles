@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20210102053529) do
   create_table "articles", force: :cascade do |t|
     t.string  "title"
     t.text    "author"
-    t.string  "image"
     t.integer "user_id"
   end
 
