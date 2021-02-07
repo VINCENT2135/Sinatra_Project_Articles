@@ -46,7 +46,12 @@ class ArticleController < ApplicationController
       erb :'articles/edit'
   end
 
-end 
- 
-    
       
+  delete "/articles/:id" do
+  @article = Article.find(params[:id])
+  
+  @article.destroy
+  redirect '/articles'
+end 
+
+end
