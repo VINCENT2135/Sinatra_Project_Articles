@@ -36,7 +36,7 @@ class ArticleController < ApplicationController
     #UPDATE 
  
    get "/articles/:id/edit" do 
-      @article = Article.find(params["id"])
+     # @article = Article.find(params["id"])
         erb :'/articles/edit'
     end
 
