@@ -22,19 +22,6 @@ class ApplicationController < Sinatra::Base
   end
 
 
-  def require_login
-    unless logged_in? 
-    redirect to '/login'
-  end
-end
-
-
-def same_user (article)
-  (article && current_user && @current_user.id == article.user_id) 
-end
-
-
-
 
 
 get "/" do

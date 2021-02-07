@@ -5,7 +5,7 @@ class ArticleController < ApplicationController
 
 
     get "/articles" do
-     
+     @articles = Article.all
       erb :'articles/index'
     
     end
@@ -17,11 +17,19 @@ class ArticleController < ApplicationController
   
     end 
 
+ 
+    get "/articles/:id/edit" do 
+      @article = Article.find(id: params[:id])
+        erb :'/articles/edit'
+    end
+
 
     get "/articles/:id" do 
-      # @article = Article.find(params["id"])
+       @articles = Article.find(id: params[:id])
        erb :'articles/show'
  end
+end
+
 
 
 
@@ -34,24 +42,19 @@ class ArticleController < ApplicationController
     end 
     
     #UPDATE 
- 
-   get "/articles/:id/edit" do 
-      @article = Article.find(params["2"])
-        erb :'/articles/edit'
-    end
 
 
   patch '/articles/:id' do 
-      @article = Article.find(params[:id])
+      @article = Article.find(id: params[:id])
       erb :'articles/edit'
   end
 
+  
       
   delete "/articles/:id" do
-  @article = Article.find(params[:id])
+  @article = Article.find(id: params[:id])
   
   @article.destroy
   redirect '/articles'
 end 
 
-end
