@@ -1,7 +1,14 @@
 class ArticleController < ApplicationController
  
-  #Read 
-#index 
+
+  before do
+      
+    if request.request_method == "GET"  && request.path_info == "/articles"
+  
+    else
+        require_login
+    end
+   end
 
 
     get "/articles" do
