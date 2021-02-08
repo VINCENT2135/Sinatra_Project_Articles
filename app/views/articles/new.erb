@@ -1,14 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
 
-<h1> Create Your Article </h1>
+<h2>Article Entry</h2>
 
-<form action="/articles" method="post"> 
-    <label> Author </label>
-    <input type="text" name="article[excerpt]"/>
-     <label> Title </label>
-    <input type="text" name="article[excerpt]" required/>
-     <label> Excerpt </label>
-    <input type="text" name="article[excerpt]"/>
-    <input type="Submit" Value="Create Your Article">
-</form>
+<p>  <%= @error %> </p>
+
+<form action="/articles" method="post">
+
+  <label>Article Title:</label><br>
+  <input type="text" name="title" value=""><br><br>
+  <label>Article Description:</label><br>
+  <textarea name="description" rows="3" cols="30"></textarea>> <br><br>
+  <input type="submit" value="Create Article">
+</form> 
 
 
+</body>
+</html>

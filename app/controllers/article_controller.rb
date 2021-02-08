@@ -11,6 +11,12 @@ class ArticleController < ApplicationController
     end
 
 
+    post '/articles' do 
+      @article = Article.new(title: params[:title])
+      if @article.save 
+        erb :'articles/new' 
+    end 
+  end 
    
     get '/articles/new' do 
       erb :'/articles/new' 
@@ -25,7 +31,7 @@ class ArticleController < ApplicationController
 
 
     get "/articles/:id" do 
-       @articles = Article.find(id: params[:id])
+      @article=Article.find_by(id: params[:id])
        erb :'articles/show'
  end
 end
@@ -33,14 +39,7 @@ end
 
 
 
-    post '/articles' do 
-      article = Article.new(params) 
-      if article.save # direct user to articles index
-        redirect '/articles'
-          else
-        erb :'/articles/new' #render the form
-    end 
-    
+
     #UPDATE 
 
 
@@ -57,4 +56,4 @@ end
   @article.destroy
   redirect '/articles'
 end 
-end
+
