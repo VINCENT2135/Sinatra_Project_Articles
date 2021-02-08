@@ -34,10 +34,10 @@ end
 
 
     post '/articles' do 
-      # article = Article.new(params) 
-      #if article.save # direct user to articles index
+      article = Article.new(params) 
+      if article.save # direct user to articles index
         redirect '/articles'
-          #else
+          else
         erb :'/articles/new' #render the form
     end 
     
@@ -57,4 +57,4 @@ end
   @article.destroy
   redirect '/articles'
 end 
-
+end
