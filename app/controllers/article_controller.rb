@@ -1,15 +1,6 @@
 class ArticleController < ApplicationController
  
 
-  before do
-      
-    if request.request_method == "GET"  && request.path_info == "/articles"
-  
-    else
-        require_login
-    end
-   end
-
 
     get "/articles" do
      @articles = Article.all
@@ -21,6 +12,9 @@ class ArticleController < ApplicationController
     post '/articles' do 
       @article = Article.new(title: params[:title])
       if @article.save 
+        redirect to("/articles/#{@article.id}" )
+      else
+        @error = @article.errors.full_messages
         erb :'articles/new' 
     end 
   end 
@@ -35,6 +29,14 @@ class ArticleController < ApplicationController
       @articles = Article.all
         erb :'/articles/edit'
     end
+
+
+  delete "/articles/:id" do
+    @article = Article.find(params[:id])
+    
+    @article.destroy
+    redirect '/articles'
+  end 
 
 
     get "/articles/:id" do 
@@ -56,11 +58,4 @@ end
   end
 
   
-      
-  delete "/articles/:id" do
-  @article = Article.find(id: params[:id])
-  
-  @article.destroy
-  redirect '/articles'
-end 
-
+ 
