@@ -1,13 +1,47 @@
-<h2> Articles </h2>
+<h1> All Articles </h1>
+<table>
+<tr> 
+<th>Article</th>
+<th>Title</th>
+<th>Description</th> 
+<th>Author</th> 
+<th colspan="3" >Actions</th> 
+</tr>
+ 
+<% @articles.each do |a| %>
 
-<% @article.each do |x| %>
-    <ul>
-      <li><a href="/articles/<%=x.id %>"> <%= x.title %> </a> </li>
-      <a href="/articless/<%=x.id%>/edit">EDIT</a>
-      <form action="//<%=x.id%>" method="post">
-        <input type="hidden" name="_method" value="delete"> 
-        <input type="submit" value= "delete">
-      </form>
-    </ul>
+<tr>
 
+<td><%= a.id %> </td>
+<td><%= a.title %> </td>
+<td><%= a.description %> </td>
+
+<td>
+  <% if a.user %>
+    <%= a.user.username %> 
+  <% end %>
+</td>
+
+<td>
+    <a href="/articles/<%=a.id%>"> Show <a/> </td>
+ </td>
+
+<td>
+  <% if same_user(a) %>
+   <a href="/articles/<%=a.id%>/edit"> Edit <a/> 
+   <% end %>
+</td>
+
+<td> 
+<% if same_user(a) %>
+  <form action="/articles/<%=a.id%>" method="post">
+    <input type="hidden" name="_method" value="delete"> 
+    <input type="submit"  value="Delete">
+  </form> 
 <% end %>
+</td>
+
+</tr>
+
+<% end %>>
+</table>
