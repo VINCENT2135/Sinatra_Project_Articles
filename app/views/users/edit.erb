@@ -1,24 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
 
 <h1> User Update </h1>
 
+<%if @error %>
+    <br>
+     <% @error.each do |e|  %>
+     <h5> <%= e %>  </h5>
+    <% end %>
+    <br>
+<% end %>
 
-<form action="/users" method="post">
-
+<form action="/users/<%=@user.id%>" method="post">
 <input type="hidden" name="_method" value="patch">
-
 <label> User Name  </label><br>
-
-<input type="text" name="username" value=""  /><br><br>
-
+<input type="text" name="username" value="<%= @user.username %>"  /><br><br>
 <label> Email  </label><br>
-
-<input type="text" name="email" value="" /><br><br>
-
+<input type="text" name="email" value="<%= @user.email %>" /><br><br>
 <label> Password </label><br>
-<input type="password" name="password" value="" /><br><br>
+<input type="password" name="password" value="<%= @user.password %>" /><br><br>
 <input type="submit" value="Update" />
 </form>
 
 </body>
 </html>
-

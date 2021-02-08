@@ -1,0 +1,17 @@
+<h1> All Users </h1>
+<table>
+<% @users.each do |u| %>
+<tr>  
+<td> <a href="/users/<%=u.id%>"> <%= u.username  %> <a/> </td>
+<td> <%=  u.email  %> </td>
+<td> <%=  u.password  %> </td>
+<td>    <a href="/users/<%=u.id%>/edit"> Edit <a/> 
+</td>
+<td> <form action="/users/<%=u.id%>" method="post"> 
+     <input type="hidden" name="_method" value="delete"> 
+     <input  type="submit" value="Delete"> 
+     </form> 
+</td>
+</tr>
+<% end %>>
+</table>
