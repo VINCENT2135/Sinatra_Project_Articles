@@ -64,6 +64,7 @@ end
          redirect to("/articles/#{@article.id}")
       else
         @error = @article.errors.full_messages
+      
       erb :'articles/edit'
   end
 
