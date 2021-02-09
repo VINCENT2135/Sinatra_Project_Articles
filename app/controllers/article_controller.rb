@@ -50,18 +50,6 @@ class ArticlesController < ApplicationController
          end
        end
      
-       #patch - ( for #edit update)
-       patch '/articles/:id' do
-         @article=Article.find(params[:id])  
-         @article=Article.update(@article.id,title: params[:title], description: params[:description] )
-         if @article.valid?
-            redirect to("/articles/#{@article.id}")
-         else
-           @error = @article.errors.full_messages
-           erb :'articles/edit'
-         end
-       end
-      
        #new
        get "/articles/new" do
          erb :'articles/new'
