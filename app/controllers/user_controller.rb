@@ -9,7 +9,7 @@ class UsersController <  ApplicationController
     
      #edit
      get "/users/:id/edit" do
-     # binding.pry
+ 
       @user=User.find(params[:id])
  
       if @user 
@@ -22,7 +22,7 @@ class UsersController <  ApplicationController
     #patch - ( for #edit update)
     patch '/users/:id' do
       @user=User.find(params[:id])  
-      @user=User.update(@user.id,username: params[:username], email: params[:email],password: params[:password] )
+      @user=User.update(@user.id,username: params[:username], password: params[:password] )
       if @user.valid?
          redirect to("/articles")
       else
