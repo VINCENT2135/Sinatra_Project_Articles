@@ -5,7 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use UsersController 
-use ArticleController
+use ArticlesController
 run ApplicationController
 
 

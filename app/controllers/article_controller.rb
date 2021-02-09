@@ -1,4 +1,4 @@
-class ArticleController < ApplicationController
+class ArticlesController < ApplicationController
  
 
    get "/articles" do
@@ -25,7 +25,7 @@ class ArticleController < ApplicationController
 
  
     get "/articles/:id/edit" do 
-      @articles = Article.find_by(id: params[:id])
+     @articles = Article.find_by(id: params[:id])
 
         erb :'/articles/edit'
       
