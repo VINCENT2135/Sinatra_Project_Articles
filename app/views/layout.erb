@@ -7,19 +7,69 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title></title>
+    <title>Articles</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
+    <style>
+
+     table, th, td {
+         border: 1px solid black;
+         border-collapse: collapse;
+       }
+       th, td {
+         padding: 5px;
+       }
+   </style>
+
   </head>
   <body>
+    <div>
+     <table>
+       <tr> 
+       <br>
+        <td><a href="/"> Home <a/> </td>
+        <td><a href="/articles"> Show Articles <a/> </td>
+        <%if logged_in? %>
+            <td><a href="/articles/new"> Create Article <a/> </td>
+        <%end%> 
+        <td><a href="/users"> List Users <a/> </td>
+        <td>
+           <%if !logged_in? %>
+             <a href="/login"> Log In <a/> 
+           <%end%> 
+        </td>
+        <td>
+           <%if !logged_in? %>
+             <a href="/signup"> Sign Up <a/> 
+           <%end%> 
+        </td>
+        <td>
+           <%if logged_in? %>
+              <a href="/logout"> Log Out <a/>
+           <%end%> 
+        </td>
+        <td>
+            <%if logged_in? %>
+            <td><a href="/users/<%=@current_user.id%>/edit"> Edit User Account <a/> </td>
+            <%end%>
+        </td>
+        <td>
+            <%if logged_in? %>
+             <%= "User Id: #{@current_user.id}, User Name: #{@current_user.username} is logged in." %> 
+            <%end%>
+        </td>
+        
+       </tr>
+     </table>
+    <div>
     <div class="wrapper">
 
-        <%= yield %>
+      <%= yield %>
 
       <footer class="branding">
-        <small>&copy; 2021 <strong></strong></small>
+        <small>&copy; 2020 <strong>Articles</strong></small>
       </footer>
     </div>
 
