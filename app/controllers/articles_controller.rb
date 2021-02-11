@@ -9,7 +9,8 @@ class ArticlesController < ApplicationController
 
 
     post '/articles' do 
-      @article = Article.new(title: params[:title])
+      @article=Article.new(title: params[:title], user_id: current_user.id)
+
       if @article.save 
         redirect to("/articles/#{@article.id}" )
       else
@@ -25,7 +26,7 @@ class ArticlesController < ApplicationController
 
  
     get "/articles/:id/edit" do 
-     @articles = Article.find_by(id: params[:id])
+     @article = Article.find_by(id: params[:id])
 
         erb :'/articles/edit'
       

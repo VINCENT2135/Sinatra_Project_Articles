@@ -6,6 +6,7 @@ end
 
 use UsersController 
 use ArticlesController
+Rack::MethodOverride
 run ApplicationController
 
 
