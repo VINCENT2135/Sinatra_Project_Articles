@@ -1,6 +1,6 @@
 
 URL	           HTTPVerb  Action
-/articles	    GET	    read
+/articles	    GET	    index 
 /articles/new   GET	    new
 /articles	    POST	create
 /articles/:id	    GET	    show
