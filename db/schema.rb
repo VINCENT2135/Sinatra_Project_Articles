@@ -20,12 +20,6 @@ ActiveRecord::Schema.define(version: 20210209191524) do
     t.integer "user_id"
   end
 
-  create_table "recipes", force: :cascade do |t|
-    t.string  "title"
-    t.text    "author"
-    t.integer "user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
