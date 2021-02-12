@@ -1,4 +1,4 @@
-!DOCTYPE html>
+
 <html>
 <body>
 
@@ -10,6 +10,8 @@
   <input type="hidden" name="_method" value="patch">
   <label>Article Title:</label><br>
   <input type="text" id="title" name="title" value="<%= @article.title %>"  > <br><br>
+  <label>Description Title:</label><br>
+  <input type="text" id="description" name="description" value="<%= @article.description %>"  > <br><br>
   
   <input type="submit" value="Edit Article">
 </form> 
