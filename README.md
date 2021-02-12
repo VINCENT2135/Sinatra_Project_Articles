@@ -1,21 +1,32 @@
-HTTP Verb	Route	        Action	        Used For
-GET	'/articles'	            index action	     index page to display all articles
-GET	'/articles/new'	        new action	     displays create article form
-POST	'/articles'	        create action	 creates one article
-GET	'/articles/:id'	        show action	     displays one article based on ID in the url
-GET	'/articles/:id/edit'edit action displays edit form based on ID in the url
-PATCH	'/articles/:id'	update action	modifies an existing article based on ID in the url
-PUT	'/articles/:id'	update action	replaces an existing article based on ID in the url
-DELETE	'/articles/:id'	delete action	deletes one article based on ID in the url
-
-The substitution tag evaluates Ruby code and then displays the results into the view. It opens with <%= and closes with %>. Inside of these tags, you can write any valid Ruby code that you want.
-
-Scripting tags open with <% and close with %>. They evaluate –– but do not actually display –– Ruby code
-
-The HTML <th> element is found in an HTML table within the <body> tag. The <th> tag defines the header cells in the table which are displayed as bold, center-aligned text. The <th> tag is a header cell that can appear in the first row of an HTML table.
-
-The HTML <td> element defines a cell of a table that contains data. It participates in the table model.
-
-The HTML <tr> element defines a row of cells in a table. The row's cells can then be established using a mix of <td> (data cell) and <th> (header cell) elements.
-
-he HREF is an attribute of the anchor tag, which is also used to identify sections within a document
+TODO
+create migrations
+create models with relationships
+plan out routes for controller following restful conventions and map to CRUD actions
+build controller actions for main model with all CRUD functionality and build corresponding forms
+add user authentication
+add user authorization
+build navigation
+add validations to input fields and error handling
+add index view for ingredients and display names and images X create a new form to add an ingredient to the db
+add page for users to see all recipes they created
+add page for users to see all ingredients required for their recipes
+Requirements
+Build an MVC Sinatra application.
+Use ActiveRecord with Sinatra.
+Use multiple models.
+Use at least one has_many relationship on a User model and one belongs_to relationship on another model.
+Must have user accounts - users must be able to sign up, sign in, and sign out.
+Validate uniqueness of user login attribute (username or email).
+Once logged in, a user must have the ability to create, read, update and destroy the resource that belongs_to user.
+Ensure that users can edit and delete only their own resources - not resources created by other users.
+Validate user input so bad data cannot be persisted to the database.
+BONUS: Display validation failures to user with error messages. (This is an optional feature, challenge yourself and give it a shot!)
+Future Work - features
+create has_many and belongs_to relationship between users and ingredients so users can CRUD ingredients separately from recipes
+give users the ability to add others' recipes to their cookbook
+give users the ability to add others' ingredients to their pantry (so their pantries and cookbooks are not limited to only records they've created)
+Refactoring - debugging
+fix line break characters in edit recipe form
+Offline Work
+added customization to pantry and cookbook views
+Enchanced recipe edit form to account for ingredients
