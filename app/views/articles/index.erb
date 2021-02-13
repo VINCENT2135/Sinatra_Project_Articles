@@ -4,6 +4,7 @@
 <th>Article</th>
 <th>Title</th>
 <th>Description</th> 
+<th> Category </th>
 <th>Author</th> 
 <th colspan="3" >Actions</th> 
 </tr>
@@ -15,7 +16,7 @@
 <td><%= a.id %> </td>
 <td><%= a.title %> </td>
 <td><%= a.description %> </td>
-
+<td><%= a.category %> </td>
 <td>
   <% if a.user %>
     <%= a.user.username %> 

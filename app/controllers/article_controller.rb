@@ -20,7 +20,7 @@ class ArticlesController <  ApplicationController
 
  #create ( from #new )
  post "/articles" do
-   @article=Article.new(title: params[:title], description: params[:description] ,user_id: current_user.id )
+   @article=Article.new(title: params[:title], description: params[:description], category: params[:category], user_id: current_user.id )
  
    if @article.save
       redirect to("/articles/#{@article.id}" )
@@ -30,12 +30,16 @@ class ArticlesController <  ApplicationController
    end  
  end
 
+ #delete
+
  delete "/articles/:id" do
+  if @current_user.id == session[:user_id]
    @article = Article.find(params[:id])
    
    @article.destroy
    redirect '/articles'
  end 
+end 
 
 
  #edit
@@ -51,11 +55,12 @@ class ArticlesController <  ApplicationController
 
  #patch - ( for #edit update)
  patch '/articles/:id' do
-   @article=Article.find(params[:id])  
-   @article=Article.update(@article.id,title: params[:title], description: params[:description] )
-   if @article.valid?
-      redirect to("/articles/#{@article.id}")
-   else
+    if @current_user.id == session[:user_id]
+      
+        @article=Article.find(params[:id])  
+        @article=Article.update(@article.id,title: params[:title], description: params[:description] )
+        redirect to("/articles/#{@article.id}") 
+      else
      @error = @article.errors.full_messages
      erb :'articles/edit'
    end
@@ -66,7 +71,7 @@ class ArticlesController <  ApplicationController
    erb :'articles/new'
  end
 
- #delete
+
 
  #show
  get "/articles/:id" do
