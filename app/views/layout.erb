@@ -30,7 +30,7 @@
        <tr> 
        <br>
         <td><a href="/"> Home <a/> </td>
-        <td><a href="/articles"> Show Articles <a/> </td>
+        <td><a href="/articles"> Article Display <a/> </td>
         <%if logged_in? %>
             <td><a href="/articles/new"> Create Article <a/> </td>
         <%end%> 
@@ -67,7 +67,7 @@
     <div class="wrapper">
 
       <%= yield %>
-
+      <body style="background-color:gold;">
       <footer class="branding">
         <small>&copy; 2021 <strong>Articles</strong></small>
       </footer>

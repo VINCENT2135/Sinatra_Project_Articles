@@ -23,7 +23,8 @@ class ArticlesController <  ApplicationController
    @article=Article.new(title: params[:title], description: params[:description], category: params[:category], user_id: current_user.id )
  
    if @article.save
-      redirect to("/articles/#{@article.id}" )
+    flash[:notice] = "Article was created successfully."  
+    redirect to("/articles/#{@article.id}" )
    else
       @error = @article.errors.full_messages
       erb :'articles/new'
