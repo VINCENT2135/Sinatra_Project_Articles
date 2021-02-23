@@ -11,9 +11,21 @@
   <input type="hidden" name="_method" value="patch">
   <label>Article Title:</label><br>
   <input type="text" id="title" name="title" value="<%= @article.title %>"  > <br><br>
-  <label>Description Title:</label><br>
+  <label>Description :</label><br>
   <input type="text" id="description" name="description" value="<%= @article.description %>"  > <br><br>
-  
+  <label> Category :</label>
+  <select name="category" id="category" value= "@article.category" >
+  <option value="history" <%="selected" if @article.category == "history" %> >History</option>
+  <option value="politics" <%="selected" if @article.category == "politics" %> >Politics</option>
+  <option value="science" <%="selected" if @article.category == "science" %> >Science</option>
+  <option value="sports" <%="selected" if @article.category == "sports" %> >Sports</option>
+  <option value="food" <%="selected" if @article.category == "food" %> >Food</option>
+  <option value="homecare" <%="selected" if @article.category == "homecare" %> >Homecare</option>
+  <option value="other" <%="selected" if @article.category == "other" %> >Other</option>
+</select> 
+
+
+
   <input type="submit" value="Edit Article">
 </form> 
 

@@ -1,10 +1,11 @@
+
 class ArticlesController <  ApplicationController 
 
   # login required for everything except show articles
 
   before do
  
-  if request.request_method == "GET"  && request.path_info == "/articles"
+  if request.request_method == "GET" 
      # ok 
   else
       require_login
@@ -23,7 +24,7 @@ class ArticlesController <  ApplicationController
    @article=Article.new(title: params[:title], description: params[:description], category: params[:category], user_id: current_user.id )
  
    if @article.save
-    flash[:notice] = "Article was created successfully."  
+ 
     redirect to("/articles/#{@article.id}" )
    else
       @error = @article.errors.full_messages
@@ -59,7 +60,7 @@ end
     if @current_user.id == session[:user_id]
       
         @article=Article.find(params[:id])  
-        @article=Article.update(@article.id,title: params[:title], description: params[:description] )
+        @article=Article.update(@article.id,title: params[:title], description: params[:description], category: params[:category] )
         redirect to("/articles/#{@article.id}") 
       else
      @error = @article.errors.full_messages
