@@ -1,20 +1,20 @@
 
 Usage
-To use this app, just clone, run rake db:migrate and then run shotgun. Everything should be set up.
+To use this app, just clone, run rake db:migrate and then run shotgun. 
 
 
-TODO
-create migrations
-create models with relationships
-plan out routes for controller following restful conventions and map to CRUD actions
-build controller actions for main model with all CRUD functionality and build corresponding forms
-add user authentication
-add user authorization
-build navigation
-add validations to input fields and error handling
-add index view for ingredients and display names and images X create a new form to add an ingredient to the db
-add page for users to see all recipes they created
-add page for users to see all ingredients required for their recipes
+TODO, 
+Create migrations.
+Create models with relationships
+Plan out routes for controller following restful conventions and map to CRUD actions
+Build controller actions for main model with all CRUD functionality and build corresponding forms
+Add user authentication
+Add user authorization
+Build navigation
+Add validations to input fields and error handling
+Add index view for ingredients and display names and images X create a new form to add an ingredient to the db
+Add page for users to see all recipes they created
+Add page for users to see all ingredients required for their recipes
 Requirements
 Build an MVC Sinatra application.
 Use ActiveRecord with Sinatra.
