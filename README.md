@@ -3,7 +3,9 @@ Usage
 To use this app, just clone, run rake db:migrate and then run shotgun. 
 
 
-TODO, 
+TODO:
+
+
 Create migrations.
 Create models with relationships.
 Plan out routes for controller following restful conventions and map to CRUD actions.
